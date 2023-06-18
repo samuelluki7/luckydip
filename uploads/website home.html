@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Black Background Website with Spinning Number Wheel</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow-y: auto;
+        }
+
+        .clock-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .clock-container div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 18px;
+        }
+
+        .clock {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+        }
+
+        p3 {
+            font-size: 14px;
+        }
+
+        .wheel-container {
+            width: 450px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wheel {
+            width: 400px;
+            height: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+            font-size: 72px;
+            text-align: center;
+            color: red;
+        }
+
+        .digit {
+            animation: spin infinite 0s linear;
+        }
+
+        @keyframes spin {
+            0% { transform: translateY(0); }
+            10% { transform: translateY(-150px); }
+            90% { transform: translateY(-150px); }
+            100% { transform: translateY(-300px); }
+        }
+
+        .latest-results {
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 28px;
+            color: #00ffed;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #00ffae;
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #00ffae;
+            text-align: center;
+            margin-bottom: 70px;
+        }
+        
+
+        .results-table {
+            margin-top: 10px;
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .results-table table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .results-table th,
+        .results-table td {
+            border: 1px solid white;
+            padding: 8px;
+            color: white;
+        }
+
+        .results-table th {
+            background-color: black;
+        }
+
+        .odd {
+            background-color: #FF6347;
+        }
+
+        .even {
+            background-color: #2E8B57;
+        }
+
+        .empty-row {
+            height: 36px; /* Adjust the height as needed */
+        }
+
+        /* Add margin to the space below the table */
+        .results-table + .space-below-table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8wc6hpj/n137/szw80/szh80/hocf00/hbw2/hfcaaa/cf100/hncccc/fas28/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" class="clock"></iframe>
+            <p3>Los Angeles</p3>
+        </div>
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8wc6sd7/n195/szw80/szh80/hocf00/hbw2/hfceee/cf100/hncccc/fas28/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" class="clock"></iframe>
+            <p3>Paris</p3>
+        </div>
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8wchps5/n28/szw80/szh80/hocf00/hbw2/hfceee/cf100/hncccc/fas28/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" class="clock"></iframe>
+            <p3>Bangkok</p3>
+        </div>
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8wchps5/n33/szw80/szh80/hocf00/hbw2/hfceee/cf100/hncccc/fas28/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" class="clock"></iframe>
+            <p3>Beijing</p3>
+        </div>
+        <div>
+            <iframe src="https://free.timeanddate.com/clock/i8wchps5/n240/szw80/szh80/hocf00/hbw2/hfceee/cf100/hncccc/fas28/fdi76/mqc000/mql10/mqw4/mqd98/mhc000/mhl10/mhw4/mhd98/mmc000/mml10/mmw1/mmd98" frameborder="0" class="clock"></iframe>
+            <p3>Sydney</p3>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Drawing starts every</h1>
+        <p>00:00</p>
+        <p>08:00</p>
+        <p>16:00</p>
+        <h2>UTC+2 TIME</h2>
+    </div>
+
+    <div class="wheel-container">
+        <div class="wheel">
+            <div class="digit">0</div>
+            <div class="digit">0</div>
+            <div class="digit">0</div>
+            <div class="digit">0</div>
+        </div>
+    </div>
+
+    <div class="container latest-results">
+        <h2>Latest Results</h2>
+        <div class="results-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Result</th>
+                        <th>Odd/Even</th>
+                        <!-- Add additional column headers here -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Add your table rows here -->
+                    <tr class="empty-row">
+                        <td>17 June 2023</td>
+                        <td>00:00</td>
+                        <td>2053</td>
+                        <td class="odd">Odd</td>
+                    </tr>
+                    <tr class="empty-row">
+                        <td>18 June 2023</td>
+                        <td>08:00</td>
+                        <td>3054</td>
+                        <td class="even">Even</td>
+                    </tr>
+                    <tr class="empty-row">
+                        <td>19 June 2023</td>
+                        <td>16:00</td>
+                        <td>3053</td>
+                        <td class="even">Even</td>
+                    </tr>
+                    <!-- Add more empty rows as needed -->
+                </tbody>
+            </table>
+        </div>
+        <div class="space-below-table"></div> <!-- Empty div for space below the table -->
+    </div>
+
+    <script>
+        function generateRandomNumber() {
+            return Math.floor(Math.random() * 10);
+        }
+
+        function updateDigits() {
+            var digits = document.getElementsByClassName('digit');
+            for (var i = 0; i < digits.length; i++) {
+                digits[i].textContent = generateRandomNumber();
+            }
+        }
+
+        setInterval(updateDigits, 100); // Adjust the interval (in milliseconds) for the speed of spinning
+
+        // Adjust the height of the wheel container based on the number of table rows
+        function adjustWheelHeight() {
+            var wheel = document.querySelector('.wheel');
+            var resultsTable = document.querySelector('.results-table');
+            var rowHeight = resultsTable.offsetHeight / resultsTable.rows.length;
+            wheel.style.height = rowHeight * 2 + 'px'; // Adjust the multiplier as needed
+        }
+
+        adjustWheelHeight(); // Call the function initially
+        window.addEventListener('resize', adjustWheelHeight); // Call the function on window resize
+    </script>
+</body>
+</html>
